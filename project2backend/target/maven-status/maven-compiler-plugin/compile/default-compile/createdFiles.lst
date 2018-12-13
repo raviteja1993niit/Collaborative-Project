@@ -1,0 +1,15 @@
+com\niit\dao\JobDao.class
+com\niit\dao\BookDao.class
+com\niit\daoimpl\JobDaoImpl.class
+com\niit\daoimpl\BookDaoImpl.class
+com\niit\daoimpl\UserDaoImpl.class
+com\niit\project2backend\App.class
+com\niit\models\User.class
+com\niit\models\Book.class
+com\niit\models\Job.class
+com\niit\configuration\DBConfiguration.class
+com\niit\configuration\WebAppConfig.class
+com\niit\dao\UserDao.class
+com\niit\configuration\WebAppInitializer.class
+com\niit\models\BlogPost.class
+com\niit\models\ErrorClazz.class
