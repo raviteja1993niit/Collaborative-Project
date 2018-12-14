@@ -1,6 +1,8 @@
+com\niit\dao\BlogPostDao.class
 com\niit\dao\JobDao.class
 com\niit\dao\BookDao.class
 com\niit\daoimpl\JobDaoImpl.class
+com\niit\daoimpl\BlogPostDaoImpl.class
 com\niit\daoimpl\BookDaoImpl.class
 com\niit\daoimpl\UserDaoImpl.class
 com\niit\project2backend\App.class

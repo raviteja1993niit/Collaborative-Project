@@ -15,6 +15,9 @@
 <script type="text/javascript" src="services/userservice.js"></script>
 <script type="text/javascript" src="controllers/jobcontroller.js"></script>
 <script type="text/javascript" src="services/jobservice.js"></script>
+<script type="text/javascript" src="controllers/blogcontroller.js"></script>
+<script type="text/javascript" src="controllers/blogindetailcontroller.js"></script>
+<script type="text/javascript" src="services/blogservice.js"></script>
 <link rel="stylesheet" href="css/bootstrap.css"/>
 <!-- <link rel="stylesheet" href="css/home.css"/> -->
 <!-- <link rel="stylesheet" href="css/registrationform1.css"> -->
@@ -37,10 +40,17 @@
 <div class="collapse navbar-collapse" id="collapse-example">
 
 <ul class="nav navbar-nav" ><!-- class="nav navbar-nav navbar-right" -->
-<li><a href="#/protectedresource" ng-show="user.role == 'ADMIN'"><span class="glyphicon glyphicon-lock"></span>&nbsp;<b>Protected Resource</b></a></li>
+<li><a href="/protectedresource" ng-show="user.role == 'ADMIN'"><span class="glyphicon glyphicon-lock"></span>&nbsp;<b>Protected Resource</b></a></li>
 <li><a href="#/getuser" ng-show="user.email != undefined"><span class="glyphicon glyphicon-pencil"></span>&nbsp;<b>Edit User Profile</b></a></li>
 <li><a href="#/alljobs" ng-show="user.email != undefined"><span class="glyphicon glyphicon-search"></span>&nbsp;<b>Get All Jobs</b></a></li>
 <li><a href="#/addjob" ng-show="user.role == 'ADMIN'"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Add Job</b></a></li>
+<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="user.email != undefined"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Blog</b><span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="#/addblog" ng-show="user.role == 'ADMIN'"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Add Blog</b></a></li>
+<li><a href="#/blogswaitingforapproval/0"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Blogs Waiting For Approval</b></a></li>
+<li><a href="#/blogsapproved/1"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Blogs Approved</b></a></li>
+</ul>
+</li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
 <li><a href="#/registerUser" ng-show="user.email == undefined"><span class="glyphicon glyphicon-registration-mark"></span>&nbsp;<b>Sign Up</b></a></li>
@@ -49,7 +59,6 @@
 </ul>
 </div>
 </nav>
-</div>
 
 <div class="container">
 <div ng-view></div>
