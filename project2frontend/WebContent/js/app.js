@@ -6,8 +6,10 @@ app.config(function($routeProvider){
 	$routeProvider
 	.when('/registerUser',{controller:'UserCtrl',templateUrl:'views/registrationform.html'})
 	.when('/login',{controller:'UserCtrl',templateUrl:'views/login.html'})
+	.when('/protectedresource',{controller:'UserCtrl',templateUrl:'views/protectedview.html'})
 	.when('/getuser',{controller:'UserCtrl',templateUrl:'views/updateform.html'})
 	.when('/addjob',{controller:'JobCtrl',templateUrl:'views/jobform.html'})
+	.when('/getjob/:id',{controller:'JobCtrl',templateUrl:'views/updatejobform.html'})
 	.when('/alljobs',{controller:'JobCtrl',templateUrl:'views/jobslist.html'})
 	.when('/addblog',{controller:'BlogCtrl',templateUrl:'views/blogform.html'})
 	.when('/blogswaitingforapproval/:value',{controller:'BlogCtrl',templateUrl:'views/blogswaitingforapproval.html'})
