@@ -7,9 +7,12 @@
 </div>
 <div class="panel-body">
 
-{{blogPost.blogContent}}
+<p ng-bind-html="htmlContent">
+</p>
 
 <div>
+<br>
+<a href="#/updateblogpost/{{blogPost.blogPostId}}" ng-show="user.email == blogPost.postedBy.email"><span class="glyphicon glyphicon-pencil">UPDATE</span></a><br>
 likes<br> 
 Post Comment<br>
 </div>
