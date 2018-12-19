@@ -31,8 +31,8 @@ app.factory('BlogService',function($http){
 		alert('BlogService')
 		return $http.put(BASE_URL + "/update",blogPost)
 	}
-	blogService.blogswaitingForApprovalPostedByUser=function(user_email){
-		return $http.get(BASE_URL + "/getblogbyemail/"+user_email)
+	blogService.blogswaitingForApprovalPostedByUser=function(){
+		return $http.get(BASE_URL + "/getblogbyemail")
 	}
 	return blogService
 })

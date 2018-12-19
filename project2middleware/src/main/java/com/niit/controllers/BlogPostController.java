@@ -134,11 +134,11 @@ private UserDao userDao;
 			return new ResponseEntity<ErrorClazz>(errorClazz,HttpStatus.UNAUTHORIZED);//login.html
 		}
 		//ROLE - AUTHORIZATION
-		User user=userDao.getUser(email);
+		/*User user=userDao.getUser(email);
 		if(!user.getRole().equals("ADMIN")){
 			ErrorClazz errorClazz=new ErrorClazz(9,"You are not authorized to view the content..");
 			return new ResponseEntity<ErrorClazz>(errorClazz,HttpStatus.UNAUTHORIZED);
-		}
+		}*/
 		try{
 			System.out.println("BlogPost Updated");
 			blogPostDao.updateBlogPost(blogPost);
@@ -150,11 +150,10 @@ private UserDao userDao;
 		}
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
-	@RequestMapping(value="/getblogbyemail/{user_email}",method=RequestMethod.GET)//, headers="Accept=*", produces = "application/json",*/
-	public ResponseEntity<?> getBlog(@PathVariable String user_email,HttpSession session){
-		
-		/*String email=(String)session.getAttribute("email");
-		//NOT LOGGED IN
+	@RequestMapping(value="/getblogbyemail",method=RequestMethod.GET)  
+	public ResponseEntity<?> getBlog(HttpSession session){                                 
+		String email=(String)session.getAttribute("email");
+		/*//NOT LOGGED IN
 		if(email==null){
 			ErrorClazz errorClazz=new ErrorClazz(6,"Please login...");
     		return new ResponseEntity<ErrorClazz>(errorClazz,HttpStatus.UNAUTHORIZED);//login.html
@@ -165,7 +164,7 @@ private UserDao userDao;
 			ErrorClazz errorClazz=new ErrorClazz(9,"You are not authorized to view the content..");
 			return new ResponseEntity<ErrorClazz>(errorClazz,HttpStatus.UNAUTHORIZED);
 		}*/
-		List<BlogPost> blogPosts=blogPostDao.getBlogByEmail(user_email);
+		List<BlogPost> blogPosts=blogPostDao.getBlogByEmail(email);
 		return new ResponseEntity<List<BlogPost>>(blogPosts,HttpStatus.OK);
 	}
 	
