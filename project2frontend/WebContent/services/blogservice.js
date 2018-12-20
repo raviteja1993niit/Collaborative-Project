@@ -28,11 +28,13 @@ app.factory('BlogService',function($http){
 		return $http['delete'](BASE_URL + "/rejectblogpost/"+blogPostId)
 	}
 	blogService.updateBlogPost=function(blogPost){
-		alert('BlogService')
 		return $http.put(BASE_URL + "/update",blogPost)
 	}
 	blogService.blogswaitingForApprovalPostedByUser=function(){
 		return $http.get(BASE_URL + "/getblogbyemail")
+	}
+	blogService.blogswaitingForApprovalPostedByUser1=function(){
+		return $http.get(BASE_URL + "/getblogbyemail1")
 	}
 	return blogService
 })

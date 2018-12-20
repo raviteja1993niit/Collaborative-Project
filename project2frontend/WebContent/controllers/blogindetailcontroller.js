@@ -70,7 +70,7 @@ app.controller('BlogInDetailCtrl',function($scope,BlogService,$routeParams,$loca
 		}
 	}*/
 	function blogswaitingForApprovalPostedByUser(){
-		alert('Blogs Waiting For Approval Posted By User...')
+		alert('Update Waiting Blogs...')
 		BlogService.blogswaitingForApprovalPostedByUser().then(function (response){
 			$scope.blogposts=response.data
 		},function(response){
@@ -79,8 +79,22 @@ app.controller('BlogInDetailCtrl',function($scope,BlogService,$routeParams,$loca
 				$location.path('/login')
 		})
 	}
-	if($routeParams.value=1)
+	if($routeParams.value==0)
 		{
 	blogswaitingForApprovalPostedByUser()//call the function only if logged in user role is 'ADMIN'
+		}
+	function blogswaitingForApprovalPostedByUser1(){
+		alert('Update Approved Blogs...')
+		BlogService.blogswaitingForApprovalPostedByUser1().then(function (response){
+			$scope.blogposts1=response.data
+		},function(response){
+			$scope.error=response.data 
+			if(response.status==401)
+				$location.path('/login')
+		})
+	}
+	if($routeParams.value==1)
+		{
+	blogswaitingForApprovalPostedByUser1()//call the function only if logged in user role is 'ADMIN'
 		}
 })

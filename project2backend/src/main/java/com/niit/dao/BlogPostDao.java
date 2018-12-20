@@ -13,4 +13,5 @@ void approveBlogPost(int blogPostId);
 void rejectBlogPost(int blogPostId);
 void updateBlogPost(BlogPost blogPost);
 List<BlogPost> getBlogByEmail(String user_email);
+List<BlogPost> getBlogByEmail1(String email);
 }

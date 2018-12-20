@@ -63,5 +63,13 @@ private SessionFactory sessionFactory;
 		List<BlogPost> blogPosts=query.list();
 		return blogPosts;
 	}
+	public List<BlogPost> getBlogByEmail1(String email) {
+		Session session=sessionFactory.getCurrentSession();
+		Query query=session.createQuery("from BlogPost where approved=? and postedBy.email=?");
+		query.setBoolean(0, true);
+		query.setString(1, email);
+		List<BlogPost> blogPosts1=query.list();
+		return blogPosts1;
+	}
 
 }
