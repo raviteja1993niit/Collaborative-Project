@@ -2,8 +2,10 @@ C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\nii
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\NotificationDaoImpl.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\BlogPost.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\JobDao.java
+C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\BlogPostLikesDao.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\JobDaoImpl.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\configuration\DBConfiguration.java
+C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\BlogPostLikes.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\Book.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\BookDaoImpl.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\project2backend\App.java
@@ -14,6 +16,7 @@ C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\nii
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\UserDao.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\configuration\WebAppInitializer.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\configuration\WebAppConfig.java
+C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\BlogPostLikesDaoImpl.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\Notification.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\NotificationDao.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\User.java

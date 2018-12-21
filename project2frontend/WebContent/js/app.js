@@ -24,7 +24,6 @@ app.config(function($routeProvider){
 	.when('/getnotification/:notificationId',{controller:'NotificationCtrl',templateUrl:'views/notificationdetails.html'})
 	.otherwise({controller:'UserCtrl',templateUrl:'views/home.html'})
 })
-
 //ngRoute -> $routeProvider and ng-view
 //ngCookies -> $cookieStore
 

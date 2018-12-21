@@ -28,7 +28,6 @@ app.controller('NotificationCtrl',function($scope,$rootScope,$location,Notificat
 				$location.path('/login')
 		})
 		}
-
 	getAllNotificationsNotViewed()
 })
 
