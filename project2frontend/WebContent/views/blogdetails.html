@@ -11,10 +11,14 @@
 </p>
 
 <div>
+
+<a href="#/updateblogpost/{{blogPost.blogPostId}}" ng-show="user.email==blogPost.postedBy.email"><span class="glyphicon glyphicon-pencil">Update BlogPost</span></a>
 <br>
-<a href="#/updateblogpost/{{blogPost.blogPostId}}" ng-show="user.role == 'ADMIN'"><span class="glyphicon glyphicon-pencil">UPDATE</span></a><br>
-likes<br> 
+<div>
+<a href="" ng-click="updateLikes(blogPost.blogPostId)"><span class="glyphicon glyphicon-thumbs-up" ng-class="isLiked?'liked':'default'"> </span> </a> {{blogPost.likes}} likes<br> 
+</div>
 Post Comment<br>
+</div>
 </div>
 </div>
 

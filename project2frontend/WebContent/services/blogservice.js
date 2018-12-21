@@ -25,12 +25,10 @@ app.factory('BlogService',function($http){
 		return $http.put(BASE_URL + "/approveblogpost/"+blogPostId)
 	}
 	blogService.rejectBlogPost=function(blogPostId,rejectionReason){
-		if(rejectionReason == undefined)
-			{
-			rejectionReason='Not Mentioned By Admin'
-			}
-		return $http['delete'](BASE_URL + "/rejectblogpost/"+blogPostId+"/"+rejectionReason)
-	}
+    	if(rejectionReason==undefined)
+    		rejectionReason='Not mentioned by Admin'
+    	return $http['delete'](BASE_URL + "/rejectblogpost/"+blogPostId+"/"+rejectionReason)
+    }	
 	blogService.updateBlogPost=function(blogPost){
 		return $http.put(BASE_URL + "/update",blogPost)
 	}
@@ -40,5 +38,12 @@ app.factory('BlogService',function($http){
 	blogService.blogswaitingForApprovalPostedByUser1=function(){
 		return $http.get(BASE_URL + "/getblogbyemail1")
 	}
+	 blogService.hasUserLikedBlogPost=function(blogPostId){
+	    	return $http.get(BASE_URL + "/hasuserlikedblogpost/"+blogPostId)
+	    }
+	    
+	    blogService.updateLikes=function(blogPostId){
+	    	return $http.put(BASE_URL + "/updatelikes/"+blogPostId)
+	    }
 	return blogService
 })

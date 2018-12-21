@@ -115,31 +115,30 @@ private NotificationDao  notificationDao;
 		return new ResponseEntity<Void>(HttpStatus.OK);
 		
 	}
-	@RequestMapping(value="/rejectblogpost/{blogPostId}/{rejectionReason}",method=RequestMethod.DELETE)
-	public ResponseEntity<?> rejectBlogPost(@PathVariable int blogPostId,@PathVariable String rejectionReason,HttpSession session)
-	{
-	String email=(String)session.getAttribute("email");
-	//NOT LOGGED IN
-	if(email==null){
-		ErrorClazz errorClazz=new ErrorClazz(6,"Please login...");
-		return new ResponseEntity<ErrorClazz>(errorClazz,HttpStatus.UNAUTHORIZED);//login.html
-	}
-	//ROLE - AUTHORIZATION
-	User user=userDao.getUser(email);
-	if(!user.getRole().equals("ADMIN")){
-		ErrorClazz errorClazz=new ErrorClazz(9,"You are not authorized to view the content..");
-		return new ResponseEntity<ErrorClazz>(errorClazz,HttpStatus.UNAUTHORIZED);
-	}
-	BlogPost blogPost=blogPostDao.getBlog(blogPostId);
-	Notification notification=new Notification();
-	notification.setBlogTitle(blogPost.getBlogTitle());
-	notification.setStatus("Rejected");
-	notification.setUserToBeNotified(blogPost.getPostedBy().getEmail());
-	notification.setRejectionReason(rejectionReason);
-	notificationDao.addNotification(notification);
-	blogPostDao.rejectBlogPost(blogPostId);
-		return new ResponseEntity<Void>(HttpStatus.OK);
+	@RequestMapping(value="/rejectblogpost/{blogPostId}/{rejectionReason}")
+	public ResponseEntity<?> rejectBlogPost(@PathVariable int blogPostId,@PathVariable String rejectionReason,HttpSession session){
+		String email=(String)session.getAttribute("email");
+		//NOT LOGGED IN
+		if(email==null){
+			ErrorClazz errorClazz=new ErrorClazz(6,"Please login...");
+    		return new ResponseEntity<ErrorClazz>(errorClazz,HttpStatus.UNAUTHORIZED);//login.html
+		}
+		//ROLE - AUTHORIZATION
+		User user=userDao.getUser(email);
+		if(!user.getRole().equals("ADMIN")){
+			ErrorClazz errorClazz=new ErrorClazz(9,"You are not authorized to view the content..");
+			return new ResponseEntity<ErrorClazz>(errorClazz,HttpStatus.UNAUTHORIZED);
+		}
+		BlogPost blogPost=blogPostDao.getBlog(blogPostId);
 		
+		Notification notification=new Notification();
+		notification.setBlogTitle(blogPost.getBlogTitle());
+		notification.setStatus("Rejected");
+		notification.setUserToBeNotified(blogPost.getPostedBy().getEmail());
+		notification.setRejectionReason(rejectionReason);
+		notificationDao.addNotification(notification);
+		blogPostDao.rejectBlogPost(blogPostId);
+		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 	@RequestMapping(value="/update" , method=RequestMethod.PUT)
 	public ResponseEntity<?> updateBlogPost(@RequestBody BlogPost blogPost,HttpSession session)

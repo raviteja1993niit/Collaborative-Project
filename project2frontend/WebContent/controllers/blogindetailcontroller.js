@@ -15,6 +15,17 @@ app.controller('BlogInDetailCtrl',function($scope,BlogService,$routeParams,$loca
 			if(response.status==401)
 				$location.path('/login')
 		})
+		BlogService.hasUserLikedBlogPost(blogId).then(
+		function(response){
+			//response.data is either 1 blogpostlikes object or empty value
+			if(response.data=='')//the blogpost is not yet liked by the user
+				$scope.isLiked=false
+				else
+					$scope.isLiked=true
+		},function(response){
+			if(response.status==401)
+				$location.path('/login')
+		})
 	}
 	$scope.approveBlogPost=function(blogPostId)
 	{
@@ -26,17 +37,17 @@ app.controller('BlogInDetailCtrl',function($scope,BlogService,$routeParams,$loca
 				$location.path('/login')
 		}
 	}
-	$scope.rejectBlogPost=function(blogPostId)
-	{
-		BlogService.rejectBlogPost(blogPostId).then(function (response){
-			$location.path('/blogswaitingforapproval/0')
-		}),function(response){
-			$scope.error=response.data
-			if(response.status == 401)
-				$location.path('/login')
-		}
-	}
 
+	$scope.rejectBlogPost=function(blogPostId,rejectionReason){
+		BlogService.rejectBlogPost(blogPostId,rejectionReason).then(function(response){
+			$location.path('/blogswaitingforapproval/0')
+		},function(response){
+			$scope.error=response.data
+			if(response.status==401)
+				$location.path('/login')
+		})
+	}
+	
 	//http://localhost:8080/middlewarecruddemo/getbook?isbn=undefined
 	if(blogPostId!=undefined){
 	BlogService.getBlog(blogPostId).then(function(response){
@@ -102,4 +113,16 @@ app.controller('BlogInDetailCtrl',function($scope,BlogService,$routeParams,$loca
 	{
 		$scope.isRejected=!$scope.isRejected
 	}
+	
+	   $scope.updateLikes=function(blogPostId){
+		   BlogService.updateLikes(blogPostId).then(
+		    function(response){
+		    	$scope.blogPost=response.data
+		    	$scope.isLiked=!$scope.isLiked
+		    },function(response){
+		    	if(response.status==401)
+					$location.path('/login')
+		   })
+	   }	
+	
 })
