@@ -1,9 +1,8 @@
 /**
  * NotificationCtrl
  */
-app.controller('NotificationCtrl',function($scope,$rootScope,$location,NotificationService){
+app.controller('NotificationCtrl',function($scope,$rootScope,$location,NotificationService,$routeParams){
 	function getAllNotificationsNotViewed(){
-		alert('Notification............')
 		NotificationService.getAllNotificationsNotViewed().then(function(response){
 			$rootScope.notifications=response.data
 			$rootScope.notificationCount=$rootScope.notifications.length
@@ -13,6 +12,23 @@ app.controller('NotificationCtrl',function($scope,$rootScope,$location,Notificat
 		})
 	}
 	
+	if($routeParams.notificationId!=undefined)
+		{
+		NotificationService.getNotification($routeParams.notificationId).then(function(response){
+			$scope.notification=response.data
+		},function(response)
+		{
+			if(response.status == 401)
+				$location.path('/login')
+		})
+		NotificationService.updateNotification($routeParams.notificationId).then(function(response){
+			getAllNotificationsNotViewed()
+		},function(response){
+			if(response.status == 401)
+				$location.path('/login')
+		})
+		}
+
 	getAllNotificationsNotViewed()
 })
 

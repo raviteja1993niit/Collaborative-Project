@@ -23,6 +23,13 @@ private Date postedOn;
 @ManyToOne
 private User postedBy;
 private boolean approved;
+private int  likes;
+public int getLikes() {
+	return likes;
+}
+public void setLikes(int likes) {
+	this.likes = likes;
+}
 public int getBlogPostId() {
 	return blogPostId;
 }
