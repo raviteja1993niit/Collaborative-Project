@@ -24,8 +24,12 @@ app.factory('BlogService',function($http){
 	blogService.approveBlogPost=function(blogPostId){
 		return $http.put(BASE_URL + "/approveblogpost/"+blogPostId)
 	}
-	blogService.rejectBlogPost=function(blogPostId){
-		return $http['delete'](BASE_URL + "/rejectblogpost/"+blogPostId)
+	blogService.rejectBlogPost=function(blogPostId,rejectionReason){
+		if(rejectionReason == undefined)
+			{
+			rejectionReason='Not Mentioned By Admin'
+			}
+		return $http['delete'](BASE_URL + "/rejectblogpost/"+blogPostId+"/"+rejectionReason)
 	}
 	blogService.updateBlogPost=function(blogPost){
 		return $http.put(BASE_URL + "/update",blogPost)

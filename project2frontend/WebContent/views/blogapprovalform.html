@@ -12,13 +12,18 @@
 <p ng-bind-html="htmlContent">
 </p>
 <div>
+<br>
+<button class="btn btn-info" ng-click="approveBlogPost(blogPost.blogPostId)" ng-hide="isRejected">Approve</button> &nbsp; 
+<button class="btn  btn-danger" ng-click="showRejectionTxt()">Reject</button> &nbsp;
 
-<button class="btn btn-info" ng-click="approveBlogPost(blogPost.blogPostId)">Approve</button> &nbsp; 
-<button class="btn  btn-danger" ng-click="rejectBlogPost(blogPost.blogPostId)">Reject</button> &nbsp;
+<div ng-show="isRejected">
+<br>
+<textarea rows="5" cols="50" ng-model="rejectionReason"></textarea>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button class="btn  btn-danger" ng-click="rejectBlogPost(blogPost.blogPostId,rejectionReason)" ng-show="isRejected">Confirm Reject</button>
+
 </div>
 </div>
-
-
 </div>
-
 </div>

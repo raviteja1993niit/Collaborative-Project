@@ -5,6 +5,7 @@ app.controller('BlogInDetailCtrl',function($scope,BlogService,$routeParams,$loca
 	var blogId=$routeParams.blogId
 	var blogPostId=$routeParams.blogPostId
 	var user_email=$routeParams.user_email
+	$scope.isRejected=false
 	if($routeParams.blogId!=undefined){
 		BlogService.getBlog(blogId).then(function(response){
 			//query? select * from blogpost where blogpostid=?
@@ -97,4 +98,8 @@ app.controller('BlogInDetailCtrl',function($scope,BlogService,$routeParams,$loca
 		{
 	blogswaitingForApprovalPostedByUser1()//call the function only if logged in user role is 'ADMIN'
 		}
+	$scope.showRejectionTxt=function()
+	{
+		$scope.isRejected=!$scope.isRejected
+	}
 })

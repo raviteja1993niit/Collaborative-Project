@@ -20,6 +20,7 @@ app.config(function($routeProvider){
 	.when('/getblogapproved/:blogId',{controller:'BlogInDetailCtrl',templateUrl:'views/blogdetails.html'})
 	.when('/blogsapproved/:value',{controller:'BlogCtrl',templateUrl:'views/blogsapproved.html'})
 	.when('/updateblogpost/:blogPostId',{controller:'BlogInDetailCtrl',templateUrl:'views/updateblogform.html'})
+	.when('/home',{controller:'NotificationCtrl',templateUrl:'views/home.html'})
 	.otherwise({controller:'UserCtrl',templateUrl:'views/home.html'})
 })
 
