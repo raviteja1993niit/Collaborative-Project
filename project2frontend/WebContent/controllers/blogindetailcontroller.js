@@ -123,6 +123,29 @@ app.controller('BlogInDetailCtrl',function($scope,BlogService,$routeParams,$loca
 		    	if(response.status==401)
 					$location.path('/login')
 		   })
-	   }	
+	   }
+	   $scope.addBlogComment=function(commentTxt,blogPost){
+		   var blogComment={}
+		   blogComment.commentTxt=commentTxt
+		   blogComment.blogPost=blogPost
+		   console.log(blogComment)
+		   BlogService.addBlogComment(blogComment).then(function(response){
+			   $scope.blogComment=response.data
+			   $scope.commentTxt=""
+		   },function(response){
+			   if(response.status==401)
+					$location.path('/login')
+		   })
+	   }
+		
+	   $scope.getBlogComments=function(blogPostId){
+		   BlogService.getBlogComments(blogPostId).then(
+		   function(response){
+			   $scope.comments=response.data //it is List<BlogComment> 
+		   },function(response){
+			   if(response.status==401)
+					$location.path('/login')
+		   })
+	   }
 	
 })
