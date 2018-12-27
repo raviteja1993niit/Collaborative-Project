@@ -11,12 +11,10 @@
 </p>
 
 <div>
-
-<a href="#/updateblogpost/{{blogPost.blogPostId}}" ng-show="user.email==blogPost.postedBy.email"><span class="glyphicon glyphicon-pencil">Update</span></a>
-<br>
-<div>
+<a href="#/updateblogpost/{{blogPost.blogPostId}}" ng-show="user.email==blogPost.postedBy.email"><span class="glyphicon glyphicon-pencil">Update</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="" ng-click="updateLikes(blogPost.blogPostId)"><span class="glyphicon glyphicon-thumbs-up" ng-class="isLiked?'liked':'default'"> </span> </a> {{blogPost.likes}} likes<br> 
 </div>
+<br>
 Post Comment<br>
 <div>
 <textarea rows="5" cols="50" ng-model="commentTxt"></textarea>
@@ -29,17 +27,23 @@ Post Comment<br>
 </div>
 </div>
 <a href="" ng-click="getBlogComments(blogPost.blogPostId)" >View comments</a>
-<ul ng-repeat="comment in comments | orderBy:'-commentedOn'" style="list-style:none;">
+<br><br>
+<!-- <ul ng-repeat="comment in comments | orderBy:'-commentedOn'" style="list-style:none;">
 <li><span style="color:blue">{{comment.commentTxt}}</span> &nbsp; &nbsp; commented By &nbsp; {{comment.commentedBy.firstname}} &nbsp;{{comment.commentedBy.lastname}} &nbsp; on {{comment.commentedOn | date:'dd-MMMM-yyyy'}}&nbsp;&nbsp;
-<!-- <a href="#/updateblogcomment/{{comment.commentId}}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
-<a href="" ng-click="deleteBlogComment(comment.commentId,blogPost.blogPostId)"><span class="glyphicon glyphicon-trash"></span></a> -->
+<a href="#/updateblogcomment/{{comment.commentId}}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="" ng-click="deleteBlogComment(comment.commentId,blogPost.blogPostId)"><span class="glyphicon glyphicon-trash"></span></a>&nbsp;&nbsp;&nbsp;&nbsp;
+<hr>
 </li>
-</ul>
+</ul> -->
+<table class="table table-bordered">
+<tr ng-repeat="comment in comments | orderBy:'-commentedOn'">
+<td><span style="color:blue">{{comment.commentTxt}}</span> &nbsp; &nbsp; commented By &nbsp; {{comment.commentedBy.firstname}} &nbsp;{{comment.commentedBy.lastname}} &nbsp; on {{comment.commentedOn | date:'dd-MMMM-yyyy'}}</td>
+<td><a href="#/updateblogcomment/{{comment.commentId}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+<td><a href="" ng-click="deleteBlogComment(comment.commentId,blogPost.blogPostId)"><span class="glyphicon glyphicon-trash"></span></a></td>
+</tr> 
+</table>
 </div>
 </div>
 </div>
-
-
 </div>
-{{comment}}
 </div>

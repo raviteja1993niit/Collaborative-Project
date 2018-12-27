@@ -1,10 +1,21 @@
 /**
  * JobCtrl
  */
-app.controller('JobCtrl',function($scope,JobService,$location,$routeParams){
+app.controller('JobCtrl',function($scope,JobService,$location,$rootScope,NotificationService,$routeParams){
 	var jobId = $routeParams.id
 	//Add Job - from view get job object and pass it to service
 	$scope.showJobDetails=false
+	
+	function getAllNotificationsNotViewed(){
+		NotificationService.getAllNotificationsNotViewed().then(function(response){
+			$rootScope.notifications=response.data
+			$rootScope.notificationCount=$rootScope.notifications.length
+		},function(response){
+			if(response.status==401)
+				$location.path('/login')
+		})
+	}
+	
 	$scope.addJob=function(job){
 		JobService.addJob(job).then(function(response){
 			alert('Job details added successfully...')
@@ -25,6 +36,7 @@ app.controller('JobCtrl',function($scope,JobService,$location,$routeParams){
 	function getAllJobs(){
 	JobService.getAllJobs().then(function(response){
 		$scope.jobs=response.data
+		getAllNotificationsNotViewed()
 	},function(response){
 		if(response.status==401)
 			$location.path('/login')

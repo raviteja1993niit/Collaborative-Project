@@ -43,7 +43,7 @@
 </div>
 <div class="collapse navbar-collapse" id="collapse-example">
 
-<ul class="nav navbar-nav" ><!-- class="nav navbar-nav navbar-right" -->
+<ul class="nav navbar-nav" ><!-- class="nav navbar-navanavbar-right" -->
 <li><a href="#/protectedresource" ng-show="user.role == 'ADMIN'"><span class="glyphicon glyphicon-lock"></span>&nbsp;<b>Protected Resource</b></a></li>
 <li><a href="#/getuser" ng-show="user.email != undefined"><span class="glyphicon glyphicon-pencil"></span>&nbsp;<b>Edit User Profile</b></a></li>
 <li><a href="#/alljobs" ng-show="user.email != undefined"><span class="glyphicon glyphicon-search"></span>&nbsp;<b>Get All Jobs</b></a></li>
@@ -70,6 +70,7 @@
      <a href="#/getnotification/{{notification.notificationId}}">Blog titled "<b>{{notification.blogTitle}} "</b>approval status is updated </a>
      <hr>
    </li>
+   <li ng-show="notificationCount == 0">No More New Notifications</li>
    </span>
    </ul>
 </li>

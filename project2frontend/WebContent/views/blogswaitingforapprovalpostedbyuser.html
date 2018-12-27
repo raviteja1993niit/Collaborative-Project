@@ -5,7 +5,7 @@
 	<div class="panel-body">
 	<span ng-show="blogposts.length==0">No blogs waiting for approval</span>
 		<ul style="list-style: none">
-			<li ng-repeat="blog in blogposts ">
+			<li ng-repeat="blog in blogposts | orderBy:'postedOn' ">
 		    <a href="#/getblogwaitingforapprovalforuser/{{blog.blogPostId}}" ><b>Blog Title: </b>{{blog.blogTitle}}</a><br>
 			<b>Posted On :  </b>{{blog.postedOn | date:'dd-MMMM-yyyy'}}<br>
 			<b>Posted By : </b> {{blog.postedBy.firstname}} &nbsp; {{blog.postedBy.lastname}}<br>

@@ -1,12 +1,23 @@
 /**
  * BlogInDetailCtrl
  */
-app.controller('BlogInDetailCtrl',function($scope,BlogService,$routeParams,$location,$sce){
+app.controller('BlogInDetailCtrl',function($scope,BlogService,$routeParams,$rootScope,NotificationService,$location,$sce){
 	var blogId=$routeParams.blogId
 	var blogPostId=$routeParams.blogPostId
 	var user_email=$routeParams.user_email
 	var blogCommentId=$routeParams.blogCommentId
 	$scope.isRejected=false
+	
+	function getAllNotificationsNotViewed(){
+		NotificationService.getAllNotificationsNotViewed().then(function(response){
+			$rootScope.notifications=response.data
+			$rootScope.notificationCount=$rootScope.notifications.length
+		},function(response){
+			if(response.status==401)
+				$location.path('/login')
+		})
+	}
+	
 	if($routeParams.blogId!=undefined){
 		BlogService.getBlog(blogId).then(function(response){
 			//query? select * from blogpost where blogpostid=?
@@ -199,4 +210,5 @@ app.controller('BlogInDetailCtrl',function($scope,BlogService,$routeParams,$loca
 					console.log(response)
 				})
 			}
+	   getAllNotificationsNotViewed()
 })

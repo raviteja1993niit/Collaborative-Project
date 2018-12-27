@@ -2,7 +2,22 @@
  * BlogCtrl
  */
 
-app.controller('BlogCtrl',function($scope,BlogService,$location,$rootScope,$routeParams){
+app.controller('BlogCtrl',function($scope,BlogService,$location,$rootScope,NotificationService,$routeParams){
+	
+	
+	function getAllNotificationsNotViewed(){
+		NotificationService.getAllNotificationsNotViewed().then(function(response){
+			$rootScope.notifications=response.data
+			$rootScope.notificationCount=$rootScope.notifications.length
+		},function(response){
+			if(response.status==401)
+				$location.path('/login')
+		})
+	}
+	
+	
+	
+	
 	$scope.addBlog=function(blog){
 		BlogService.addBlog(blog).then(function(response){
 			alert('blogpost is added successfully and it is waiting for approval...')
@@ -40,11 +55,16 @@ app.controller('BlogCtrl',function($scope,BlogService,$location,$rootScope,$rout
 				$location.path('/login')
 		})
 	}
+	if($rootScope.user.role==undefined)
+		{
+		$location.path('/login')
+		}
 	if($rootScope.user.role=='ADMIN' && $routeParams.value==0)
 	blogsWaitingForApproval()//call the function only if logged in user role is 'ADMIN'
 	
 	if($routeParams.value==1)
 	blogsApproved()
 	
+	getAllNotificationsNotViewed()
 	
 })
