@@ -5,6 +5,7 @@ app.controller('BlogInDetailCtrl',function($scope,BlogService,$routeParams,$loca
 	var blogId=$routeParams.blogId
 	var blogPostId=$routeParams.blogPostId
 	var user_email=$routeParams.user_email
+	var blogCommentId=$routeParams.blogCommentId
 	$scope.isRejected=false
 	if($routeParams.blogId!=undefined){
 		BlogService.getBlog(blogId).then(function(response){
@@ -52,7 +53,6 @@ app.controller('BlogInDetailCtrl',function($scope,BlogService,$routeParams,$loca
 	if(blogPostId!=undefined){
 	BlogService.getBlog(blogPostId).then(function(response){
 			$scope.blogPost=response.data
-			
 		},function(response){
 			console.log(response)
 		})
@@ -126,6 +126,11 @@ app.controller('BlogInDetailCtrl',function($scope,BlogService,$routeParams,$loca
 	   }
 	   $scope.addBlogComment=function(commentTxt,blogPost){
 		   var blogComment={}
+		   if(commentTxt == "")
+		   {
+		  alert("Please Enter Some Text")
+		   }
+	   else{
 		   blogComment.commentTxt=commentTxt
 		   blogComment.blogPost=blogPost
 		   console.log(blogComment)
@@ -137,8 +142,8 @@ app.controller('BlogInDetailCtrl',function($scope,BlogService,$routeParams,$loca
 					$location.path('/login')
 		   })
 	   }
-		
-	   $scope.getBlogComments=function(blogPostId){
+	   }
+	 $scope.getBlogComments=function(blogPostId){
 		   BlogService.getBlogComments(blogPostId).then(
 		   function(response){
 			   $scope.comments=response.data //it is List<BlogComment> 
@@ -147,5 +152,51 @@ app.controller('BlogInDetailCtrl',function($scope,BlogService,$routeParams,$loca
 					$location.path('/login')
 		   })
 	   }
-	
+	   function getBlogComments(blogPostId){
+		   BlogService.getBlogComments(blogPostId).then(
+		   function(response){
+			   $scope.comments=response.data //it is List<BlogComment> 
+		   },function(response){
+			   if(response.status==401)
+					$location.path('/login')
+		   })
+	   }
+	   $scope.updateBlogComment=function(commentId,commentTxt,blogPost){
+		   var blogComment={}
+		   if(commentTxt == "")
+			   {
+			  alert("Please Enter Some Text")
+			   }
+		   else{
+		   blogComment.commentTxt=commentTxt
+		   blogComment.blogPost=blogPost
+		   blogComment.commentId=blogCommentId
+		   console.log(blogComment)
+		   BlogService.updateBlogComment(blogComment).then(function(response){
+			   $scope.blogComment=response.data
+			   $scope.comment1.commentTxt=""
+		   },function(response){
+			   if(response.status==401)
+					$location.path('/login')
+		   })
+		   }
+	   }
+	   $scope.deleteBlogComment=function(commentId,blogPostId){
+		   BlogService.deleteBlogComment(commentId).then(function(response){
+			   $scope.blogComment=undefined
+			   getBlogComments(blogPostId)
+		   },function(response){
+			   if(response.status==401)
+					$location.path('/login')
+		   })
+	   }
+	   if(blogCommentId!=undefined){
+		   BlogService.getBlogCommentById(blogCommentId).then(function(response){
+					$scope.comment1=response.data
+					var comment=response.data
+					$scope.blogPost=comment.blogPost
+				},function(response){
+					console.log(response)
+				})
+			}
 })

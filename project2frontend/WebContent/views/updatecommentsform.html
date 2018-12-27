@@ -1,4 +1,4 @@
-<div class="panel panel-info">
+<!-- <div class="panel panel-info">
 <div class="panel-heading">
 <b>Blog Title: </b>{{blogPost.blogTitle}}<br>
 <b>Posted On :  </b>{{blogPost.postedOn | date:'dd-MMMM-yyyy'}}<br>
@@ -17,12 +17,13 @@
 <div>
 <a href="" ng-click="updateLikes(blogPost.blogPostId)"><span class="glyphicon glyphicon-thumbs-up" ng-class="isLiked?'liked':'default'"> </span> </a> {{blogPost.likes}} likes<br> 
 </div>
-Post Comment<br>
+Update Comment<br>
+
 <div>
-<textarea rows="5" cols="50" ng-model="commentTxt"></textarea>
-<button class="btn btn-md btn-info" ng-show="commentTxt != undefined" ng-click="addBlogComment(commentTxt,blogPost)"><b>SEND</b></button>
+<textarea rows="5" cols="50" ng-model="comment1.commentTxt" required></textarea>
+<button class="btn btn-md btn-info" ng-show="comment1.commentTxt != undefined" ng-click="updateBlogComment(comment1.commentId,comment1.commentTxt,blogPost)"><b>UPDATE</b></button>
 <br>
-<div ng-show="blogComment!=undefined">
+<div ng-hide="blogComment == undefined">
 {{blogComment.commentTxt}}<br>
 &nbsp;&nbsp;&nbsp;commentedBy :- {{blogComment.commentedBy.firstname}} &nbsp; {{blogComment.commentedBy.lastname}}<br>
 &nbsp;&nbsp;&nbsp;commentedOn :- {{blogComment.commentedOn | date:'dd-MMMM-yyyy:HH:mm:ss'}}<br>
@@ -30,16 +31,12 @@ Post Comment<br>
 </div>
 <a href="" ng-click="getBlogComments(blogPost.blogPostId)" >View comments</a>
 <ul ng-repeat="comment in comments | orderBy:'-commentedOn'" style="list-style:none;">
-<li><span style="color:blue">{{comment.commentTxt}}</span> &nbsp; &nbsp; commented By &nbsp; {{comment.commentedBy.firstname}} &nbsp;{{comment.commentedBy.lastname}} &nbsp; on {{comment.commentedOn | date:'dd-MMMM-yyyy'}}&nbsp;&nbsp;
-<!-- <a href="#/updateblogcomment/{{comment.commentId}}"><span class="glyphicon glyphicon-pencil"></span></a>&nbsp;&nbsp;
-<a href="" ng-click="deleteBlogComment(comment.commentId,blogPost.blogPostId)"><span class="glyphicon glyphicon-trash"></span></a> -->
+<li>
+<span style="color:blue">{{comment.commentTxt}}</span> &nbsp; &nbsp; commented By &nbsp; {{comment.commentedBy.firstname}} &nbsp;{{comment.commentedBy.lastname}} &nbsp; on {{comment.commentedOn | date:'dd-MMMM-yyyy'}} 
 </li>
 </ul>
 </div>
 </div>
 </div>
-
-
 </div>
-{{comment}}
-</div>
+</div> -->

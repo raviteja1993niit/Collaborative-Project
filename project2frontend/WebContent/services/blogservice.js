@@ -48,9 +48,19 @@ app.factory('BlogService',function($http){
 	    blogService.addBlogComment=function(blogComment){
 	    	return $http.post(BASE_URL + "/addblogcomment",blogComment)
 	    }
+	    blogService.updateBlogComment=function(blogComment){
+	    	return $http.put(BASE_URL + "/updateblogcomment",blogComment)
+	    }
 	    
 	    blogService.getBlogComments=function(blogPostId){
 	    	return $http.get(BASE_URL + "/blogcomments/"+blogPostId)
+	    }
+	    blogService.getBlogCommentById=function(blogCommentId){
+	    	 alert("Updating BlogComment")
+	    	return $http.get(BASE_URL + "/getblogcommentbyid/"+blogCommentId)
+	    }
+	    blogService.deleteBlogComment=function(commentId){
+	    return $http['delete'](BASE_URL + "/deleteblogcomment/"+commentId)
 	    }
 	return blogService
 })
