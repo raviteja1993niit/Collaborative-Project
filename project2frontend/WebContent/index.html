@@ -75,7 +75,9 @@
    </ul>
 </li>
 <li><a href="" ng-show="user.email != undefined"><b>WELCOME {{user.email}}</b></a>
-
+<li><a href="#/uploadprofilepic" ng-show="user.email != undefined">
+<b><img src="http://localhost:8081/project2middleware/getimage?email={{user.email}}" alt="Upload Image" height="40px" width="45px"/></b>
+</a></li>
 <li><a href="#/registerUser" ng-show="user.email == undefined"><span class="glyphicon glyphicon-registration-mark"></span>&nbsp;<b>Sign Up</b></a></li>
 <li><a href="#/login" ng-show="user.email == undefined"><span class="glyphicon glyphicon-log-in"></span>&nbsp;<b>Sign In</b></a></li>
 <li><a href="" ng-click="logout()" ng-show="user.email != undefined"><span class="glyphicon glyphicon-log-out"></span>&nbsp;<b>Sign out</b></a></li>

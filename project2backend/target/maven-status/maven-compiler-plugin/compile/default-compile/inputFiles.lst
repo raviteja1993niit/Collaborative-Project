@@ -1,3 +1,4 @@
+C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\ProfilePictureDaoImpl.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\JobDaoImpl.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\BlogComment.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\Book.java
@@ -7,6 +8,7 @@ C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\nii
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\BookDao.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\configuration\WebAppInitializer.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\configuration\WebAppConfig.java
+C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\ProfilePicture.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\BlogPostLikesDaoImpl.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\Job.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\NotificationDaoImpl.java
@@ -18,6 +20,7 @@ C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\nii
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\BookDaoImpl.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\BlogPostDaoImpl.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\BlogPostDao.java
+C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\ProfilePictureDao.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\UserDao.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\Notification.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\NotificationDao.java
