@@ -2,17 +2,20 @@
 <div ng-show="user.role=='ADMIN'">
 <div class="panel panel-info">
 <div class="panel-heading">
-<b>Blog Title: </b>{{blogPost.blogTitle}}<br>
-<b>Posted On :  </b>{{blogPost.postedOn | date:'dd-MMMM-yyyy'}}<br>
-<b>Posted By : </b> {{blogPost.postedBy.firstname}} &nbsp; {{blog.postedBy.lastname}}<br>
-<b>Email     :   </b> {{blogPost.postedBy.email}}<br>
+<img src="http://localhost:8081/project2middleware/getimage?email={{user.email}}" alt="Upload Image" height="140px" width="145px"/>
+<table class="table table-bored">
+<tr><td><b>Blog Title: </b></td><td>{{blogPost.blogTitle}}<br></td></tr>
+<tr><td><b>Posted On :  </b></td><td>{{blogPost.postedOn | date:'dd-MMMM-yyyy'}}<br></td></tr>
+<tr><td><b>Posted By : </b></td><td> {{blogPost.postedBy.firstname}} &nbsp; {{blog.postedBy.lastname}}<br></td></tr>
+<tr><td><b>Email     :   </b></td><td>{{blogPost.postedBy.email}}<br></td></tr>
+</table>
 </div>
 <div class="panel-body">
-
+<b>Content:</b><br>
 <p ng-bind-html="htmlContent">
 </p>
+<hr>
 <div>
-<br>
 <button class="btn btn-info" ng-click="approveBlogPost(blogPost.blogPostId)" ng-hide="isRejected">Approve</button> &nbsp; 
 <button class="btn  btn-danger" ng-click="showRejectionTxt()">Reject</button> &nbsp;
 

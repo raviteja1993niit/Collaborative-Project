@@ -6,10 +6,10 @@
 <b>Email     :   </b> {{blogPost.postedBy.email}}<br>
 </div>
 <div class="panel-body">
-
+<b>Content:</b><br>
 <p ng-bind-html="htmlContent">
 </p>
-
+<hr>
 <div>
 <a href="#/updateblogpost/{{blogPost.blogPostId}}" ng-show="user.email==blogPost.postedBy.email"><span class="glyphicon glyphicon-pencil">Update</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="" ng-click="updateLikes(blogPost.blogPostId)"><span class="glyphicon glyphicon-thumbs-up" ng-class="isLiked?'liked':'default'"> </span> </a> {{blogPost.likes}} likes<br> 

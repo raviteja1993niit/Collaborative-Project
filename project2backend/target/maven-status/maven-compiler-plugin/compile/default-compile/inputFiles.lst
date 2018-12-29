@@ -6,11 +6,13 @@ C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\nii
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\BlogCommentDao.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\ErrorClazz.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\BookDao.java
+C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\FriendDao.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\configuration\WebAppInitializer.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\configuration\WebAppConfig.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\ProfilePicture.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\BlogPostLikesDaoImpl.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\Job.java
+C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\FriendDaoImpl.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\NotificationDaoImpl.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\BlogPost.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\JobDao.java
@@ -19,6 +21,7 @@ C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\nii
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\BlogPostLikes.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\BookDaoImpl.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\BlogPostDaoImpl.java
+C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\Friend.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\BlogPostDao.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\ProfilePictureDao.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\UserDao.java

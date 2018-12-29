@@ -21,16 +21,22 @@
 <script type="text/javascript" src="services/blogservice.js"></script>
 <script type="text/javascript" src="controllers/notificationcontroller.js"></script>
 <script type="text/javascript" src="services/notificationservice.js"></script>
+<script type="text/javascript" src="controllers/friendcontroller.js"></script>
+<script type="text/javascript" src="services/friendservice.js"></script>
 <link rel="stylesheet" href="css/bootstrap.css"/>
 <link rel="stylesheet" href="css/notification.css"/>
 <!-- <link rel="stylesheet" href="css/home.css"/> -->
 <!-- <link rel="stylesheet" href="css/registrationform1.css"> -->
 <link rel="stylesheet" href="css/navbar.css"/>
+<style>
+img {
+  border-radius: 100%;
+}
+</style>
 </head>
 <body ng-app="app" background="images/1.jpg">
-
+<div class="container-fluid">
 <nav class="navbar navbar-default" id="navcolor">
-<div class="container">
 <div  class="navbar-header">
 <a href="" class="navbar-brand"><img src="images/niit.png" height="30px" width="70px"></a>
 <button type="button" class="navbar-toggle collapsed" 
@@ -74,6 +80,12 @@
    </span>
    </ul>
 </li>
+<li class="dropdown">
+<a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show="user.email!=undefined"><b>Friend</b><b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li><a href="#/suggestedusers">Suggested Users</a></li>
+</ul>
+</li>
 <li><a href="" ng-show="user.email != undefined"><b>WELCOME {{user.email}}</b></a>
 <li><a href="#/uploadprofilepic" ng-show="user.email != undefined">
 <b><img src="http://localhost:8081/project2middleware/getimage?email={{user.email}}" alt="Upload Image" height="40px" width="45px"/></b>
@@ -87,6 +99,7 @@
 
 <div class="container">
 <div ng-view></div>
+</div>
 </div>
 </body>
 </html>

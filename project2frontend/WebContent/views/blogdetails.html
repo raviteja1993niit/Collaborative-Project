@@ -1,16 +1,18 @@
 <div class="panel panel-info">
 <div class="panel-heading">
-<b>Blog Title: </b>{{blogPost.blogTitle}}<br>
-<b>Posted On :  </b>{{blogPost.postedOn | date:'dd-MMMM-yyyy'}}<br>
-<b>Posted By : </b> {{blogPost.postedBy.firstname}} &nbsp; {{blog.postedBy.lastname}}<br>
-<b>Email     :   </b> {{blogPost.postedBy.email}}<br>
-<img src="http://localhost:8081/project2middleware/getimage?email={{user.email}}" alt="Upload Image" height="40px" width="40px"/>
+<img src="http://localhost:8081/project2middleware/getimage?email={{user.email}}" alt="Upload Image" height="140px" width="145px"/>
+<table class="table table-bored">
+<tr><td><b>Blog Title: </b></td><td>{{blogPost.blogTitle}}<br></td></tr>
+<tr><td><b>Posted On :  </b></td><td>{{blogPost.postedOn | date:'dd-MMMM-yyyy'}}<br></td></tr>
+<tr><td><b>Posted By : </b></td><td> {{blogPost.postedBy.firstname}} &nbsp; {{blog.postedBy.lastname}}<br></td></tr>
+<tr><td><b>Email     :   </b></td><td>{{blogPost.postedBy.email}}<br></td></tr>
+</table>
 </div>
 <div class="panel-body">
-
+<b>Content:</b><br>
 <p ng-bind-html="htmlContent">
 </p>
-
+<hr>
 <div>
 <a href="#/updateblogpost/{{blogPost.blogPostId}}" ng-show="user.email==blogPost.postedBy.email"><span class="glyphicon glyphicon-pencil">Update</span></a>&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="" ng-click="updateLikes(blogPost.blogPostId)"><span class="glyphicon glyphicon-thumbs-up" ng-class="isLiked?'liked':'default'"> </span> </a> {{blogPost.likes}} likes<br> 
