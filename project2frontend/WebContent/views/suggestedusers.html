@@ -22,14 +22,14 @@ hr {
 </div>
 <div class="panel-body">
 <ul style="list-style:none">
-<li ng-repeat="user in suggestedUsers">
+<li ng-repeat="toUser in suggestedUsers">
 <hr>
-<img src="http://localhost:8081/project2middleware/getimage?email={{user.email}}" alt="Upload Image" height="140px" width="145px"/>
+<img src="http://localhost:8081/project2middleware/getimage?email={{toUser.email}}" alt="Upload Image" height="140px" width="145px"/>
 <table class="table table-bored">
-<tr><td><b>EMAIL_ID:</b></td><td>{{user.email}}</td></tr>
-<tr><td><b>NAME:</b></td><td>{{user.firstname}} &nbsp; {{user.lastname}}</td></tr>
-<tr><td><b>ROLE_OF_USER:</b></td><td>{{user.role}}</td></tr>
-<tr><td><button class="btn btn-sm btn-info">Send Friend Request</button></td><td></td></tr>
+<tr><td><b>EMAIL_ID:</b></td><td>{{toUser.email}}</td></tr>
+<tr><td><b>NAME:</b></td><td>{{toUser.firstname}} &nbsp; {{toUser.lastname}}</td></tr>
+<tr><td><b>ROLE_OF_USER:</b></td><td>{{toUser.role}}</td></tr>
+<tr><td><button class="btn btn-sm btn-info" ng-click="sendFriendRequest(toUser)">Send Friend Request</button></td><td></td></tr>
 </table>
 </li>
 </ul>
