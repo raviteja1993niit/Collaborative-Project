@@ -59,7 +59,47 @@ public ResponseEntity<?> getAllSuggestedUsers(HttpSession session)
 			ErrorClazz errorClazz=new ErrorClazz(6,"Please login...");
 			return new ResponseEntity<ErrorClazz>(errorClazz,HttpStatus.UNAUTHORIZED);//login.html
 		}
+		System.out.println("Controller");
 		List<Friend> pendingRequests=friendDao.pendingRequests(email);
 		return new ResponseEntity<List<Friend>>(pendingRequests,HttpStatus.OK);
 	}
+	@RequestMapping(value="/acceptfriendrequest",method=RequestMethod.PUT)
+	public ResponseEntity<?> acceptFriendRequest(@RequestBody Friend friend, HttpSession session)
+	{
+	String email=(String)session.getAttribute("email");
+	if(email == null)
+	{
+	ErrorClazz errorClazz=new ErrorClazz(6,"Please Login............");
+	return new   ResponseEntity<ErrorClazz>(errorClazz, HttpStatus.UNAUTHORIZED);
+	}
+	friendDao.acceptFriendRequest(friend);
+	return new ResponseEntity<Void>(HttpStatus.OK);
+	}
+
+	@RequestMapping(value="/deletefriendrequest",method=RequestMethod.PUT)
+	public ResponseEntity<?> deleteFriendRequest(@RequestBody Friend friend, HttpSession session)
+	{
+	String email=(String)session.getAttribute("email");
+	if(email == null)
+	{
+	ErrorClazz errorClazz=new ErrorClazz(6,"Please Login............");
+	return new   ResponseEntity<ErrorClazz>(errorClazz, HttpStatus.UNAUTHORIZED);
+	}
+	friendDao.deleteFriendRequest(friend);
+	return new ResponseEntity<Void>(HttpStatus.OK);
+	}
+
+	@RequestMapping(value="/listoffriends", method=RequestMethod.GET)
+	public ResponseEntity<?> listOfFriends(HttpSession session)
+	{
+	String email=(String)session.getAttribute("email");
+	if(email == null)
+	{
+	ErrorClazz errorClazz=new ErrorClazz(6,"Please Login............");
+	return new   ResponseEntity<ErrorClazz>(errorClazz, HttpStatus.UNAUTHORIZED);
+	}
+	List<User> friends=friendDao.listOfFriends(email);
+	return new ResponseEntity<List<User>>(friends, HttpStatus.OK);
+	}
+
 }

@@ -45,12 +45,36 @@ public class FriendDaoImpl implements FriendDao {
 	}
 	public List<Friend> pendingRequests(String email)
 	{
+		System.out.println("pending");
 	Session session=sessionFactory.getCurrentSession();
-	Query query=session.createQuery("from Friend where toId_email=: email and status=:status");
+	Query query=session.createQuery("from Friend where toId_email=:email and status=:status");
 	query.setString("email",email);
 	query.setCharacter("status",'P');
 	List<Friend> pendingRequests=query.list();
 	return pendingRequests;
 	}
+	public void acceptFriendRequest(Friend friend)
+	{
+	Session session=sessionFactory.getCurrentSession();
+	friend.setStatus('A');
+	session.update(friend);
+	}
+	public void deleteFriendRequest(Friend friend)
+	{
+	Session session=sessionFactory.getCurrentSession();
+	session.delete(friend);
+	}
+	public List<User> listOfFriends(String email)
+	{
 
+	Session session=sessionFactory.getCurrentSession();
+	Query query1=session.createQuery("select f.fromId from Friend f where f.toId.email=:e1 and status='A'");
+	query1.setString("e1",email);
+	List<User> list1=query1.list();
+	Query query2=session.createQuery("select f.toId from Friend f where f.fromId.email=:e2 and status='A'");
+	query2.setString("e2",email);
+	List<User> list2=query2.list();
+	list1.addAll(list2);
+	return list1;
+	}
 }

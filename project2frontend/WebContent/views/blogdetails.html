@@ -24,6 +24,7 @@ Post Comment<br>
 <button class="btn btn-md btn-info" ng-show="commentTxt != undefined" ng-click="addBlogComment(commentTxt,blogPost)"><b>SEND</b></button>
 <br>
 <div ng-show="blogComment!=undefined">
+
 {{blogComment.commentTxt}}<br>
 &nbsp;&nbsp;&nbsp;commentedBy :- {{blogComment.commentedBy.firstname}} &nbsp; {{blogComment.commentedBy.lastname}}<br>
 &nbsp;&nbsp;&nbsp;commentedOn :- {{blogComment.commentedOn | date:'dd-MMMM-yyyy:HH:mm:ss'}}<br>
@@ -40,9 +41,10 @@ Post Comment<br>
 </ul> -->
 <table class="table table-bordered">
 <tr ng-repeat="comment in comments | orderBy:'-commentedOn'">
-<td><span style="color:blue">{{comment.commentTxt}}</span> &nbsp; &nbsp; commented By &nbsp; {{comment.commentedBy.firstname}} &nbsp;{{comment.commentedBy.lastname}} &nbsp; on {{comment.commentedOn | date:'dd-MMMM-yyyy'}}</td>
-<td><a href="#/updateblogcomment/{{comment.commentId}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
-<td><a href="" ng-click="deleteBlogComment(comment.commentId,blogPost.blogPostId)"><span class="glyphicon glyphicon-trash"></span></a></td>
+<td><img src="http://localhost:8081/project2middleware/getimage?email={{comment.commentedBy.email}}" alt="Upload Image" height="40px" width="45px"/></td>
+<td><span style="color:blue">{{comment.commentTxt}}</span> <br>commented By &nbsp; {{comment.commentedBy.firstname}} &nbsp;{{comment.commentedBy.lastname}} &nbsp; on {{comment.commentedOn | date:'dd-MMMM-yyyy'}}</td>
+<td ng-show="user.email == comment.commentedBy.email"><a href="#/updateblogcomment/{{comment.commentId}}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+<td ng-show="user.email == comment.commentedBy.email"><a href="" ng-click="deleteBlogComment(comment.commentId,blogPost.blogPostId)"><span class="glyphicon glyphicon-trash"></span></a></td>
 </tr> 
 </table>
 </div>

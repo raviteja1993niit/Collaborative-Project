@@ -26,6 +26,7 @@ app.config(function($routeProvider){
 	.when('/getnotification/:notificationId',{controller:'NotificationCtrl',templateUrl:'views/notificationdetails.html'})
 	.when('/uploadprofilepic',{templateUrl:'views/profilepictureform.html'})
 	.when('/suggestedusers',{controller:'FriendCtrl',templateUrl:'views/suggestedusers.html'})
+	.when('/pendingrequests',{controller:'FriendCtrl',templateUrl:'views//pendingrequests.html'})
 	.otherwise({controller:'UserCtrl',templateUrl:'views/home.html'})
 })
 //ngRoute -> $routeProvider and ng-view
