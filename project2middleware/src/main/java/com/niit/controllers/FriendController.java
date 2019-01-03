@@ -59,7 +59,6 @@ public ResponseEntity<?> getAllSuggestedUsers(HttpSession session)
 			ErrorClazz errorClazz=new ErrorClazz(6,"Please login...");
 			return new ResponseEntity<ErrorClazz>(errorClazz,HttpStatus.UNAUTHORIZED);//login.html
 		}
-		System.out.println("Controller");
 		List<Friend> pendingRequests=friendDao.pendingRequests(email);
 		return new ResponseEntity<List<Friend>>(pendingRequests,HttpStatus.OK);
 	}

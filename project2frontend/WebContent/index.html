@@ -52,9 +52,12 @@ img {
 <ul class="nav navbar-nav" ><!-- class="nav navbar-navanavbar-right" -->
 <li><a href="#/protectedresource" ng-show="user.role == 'ADMIN'"><span class="glyphicon glyphicon-lock"></span>&nbsp;<b>Protected Resource</b></a></li>
 <li><a href="#/getuser" ng-show="user.email != undefined"><span class="glyphicon glyphicon-pencil"></span>&nbsp;<b>Edit User Profile</b></a></li>
+<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="user.email != undefined"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Jobs</b><span class="caret"></span></a>
+<ul class="dropdown-menu">
 <li><a href="#/alljobs" ng-show="user.email != undefined"><span class="glyphicon glyphicon-search"></span>&nbsp;<b>Get All Jobs</b></a></li>
 <li><a href="#/addjob" ng-show="user.role == 'ADMIN'"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Add Job</b></a></li>
-<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="user.email != undefined"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Blog</b><span class="caret"></span></a>
+</ul>
+<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="user.email != undefined"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Blogs</b><span class="caret"></span></a>
 <ul class="dropdown-menu">
 <li><a href="#/addblog" ng-show="user.email != undefined"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Add Blog</b></a></li>
 <li><a href="#/blogswaitingforapproval/0" ng-show="user.role == 'ADMIN'"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Blogs Waiting For Approval</b></a></li>
@@ -63,11 +66,19 @@ img {
 <li><a href="#/blogsapproved/1"><span class="glyphicon glyphicon-plus"></span>&nbsp;<b>Blogs Approved</b></a></li>
 </ul>
 </li>
+<li class="dropdown">
+<a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show="user.email!=undefined"><b>Friends</b><b class="caret"></b></a>
+<ul class="dropdown-menu">
+<li><a href="#/suggestedusers">Suggested Users</a></li>
+<li><a href="#/listoffriends">Friends</a></li>
+<!-- <li><a href="#/pendingrequests">Pending Requests</a></li> -->
+</ul>
+</li>
 </ul>
 
 <ul class="nav navbar-nav navbar-right">
-<li class="dropdown" >
-<a href="#/home" class="dropdown-toggle" data-toggle="dropdown" ng-show="user.email"> 
+<li class="dropdown" > <!-- ng-controller="getAllNotificationsNotViewed" -->
+<a href="#/home" class="dropdown-toggle" data-toggle="dropdown" ng-show="user.email!=undefined"> 
 <span class="glyphicon glyphicon-bell" > 
   <span class="rw-number-notification" ng-if="notificationCount>0">{{notificationCount}}</span></span></a>
    <ul class="dropdown-menu" >
@@ -80,12 +91,19 @@ img {
    </span>
    </ul>
 </li>
-<li class="dropdown">
-<a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show="user.email!=undefined"><b>Friend</b><b class="caret"></b></a>
-<ul class="dropdown-menu">
-<li><a href="#/suggestedusers">Suggested Users</a></li>
-<li><a href="#/pendingrequests">Pending Requests</a></li>
-</ul>
+<li class="dropdown" >    <!-- ng-controller="getAllPendingRequests1" -->
+<a href="#/home" class="dropdown-toggle" data-toggle="dropdown" ng-show="user.email!=undefined"> 
+ <span class="glyphicon glyphicon-user" > 
+  <span class="rw-number-notification" ng-if="pendingRequestsCount>0">{{pendingRequestsCount}}</span></span></a>
+   <ul class="dropdown-menu" >
+  <span class="dropdown-content">
+   <li ng-repeat="pendingRequest in pendingRequests">
+     <a href="#/pendingrequests">You Have Friend Request from"<b>{{pendingRequest.fromid.email}}"</b></a>
+     <hr>
+   </li>
+   <li ng-show="pendingRequestsCount == 0">No More New Friend Requests</li>
+   </span>
+   </ul>
 </li>
 <li><a href="" ng-show="user.email != undefined"><b>WELCOME {{user.email}}</b></a>
 <li><a href="#/uploadprofilepic" ng-show="user.email != undefined">
@@ -102,5 +120,6 @@ img {
 <div ng-view></div>
 </div>
 </div>
+
 </body>
 </html>

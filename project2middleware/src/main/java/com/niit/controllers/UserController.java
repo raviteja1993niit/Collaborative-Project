@@ -110,6 +110,8 @@ private UserDao userDao;
 			ErrorClazz errorClazz=new ErrorClazz(7,"Unable to Update User Details.."+e.getMessage());
 			return new ResponseEntity<ErrorClazz>(errorClazz,HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		return new ResponseEntity<User>(user,HttpStatus.OK);
+		System.out.println("Updated User");
+		User user1=userDao.getUser(email);
+		return new ResponseEntity<User>(user1,HttpStatus.OK);
 	}
 }

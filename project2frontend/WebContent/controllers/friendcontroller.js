@@ -1,7 +1,7 @@
 /**
  * FriendCtrl
  */
-app.controller('FriendCtrl',function($scope,$location,FriendService)
+app.controller('FriendCtrl',function($scope,$rootScope,$location,NotificationService,FriendService)
 { 
 	function getAllSuggestedUsers(){
 	FriendService.getAllSuggestedUsers().then(function(response){
@@ -11,6 +11,17 @@ app.controller('FriendCtrl',function($scope,$location,FriendService)
 			$location.path('/login')
 	})
 	}
+	
+	function getAllNotificationsNotViewed(){
+		NotificationService.getAllNotificationsNotViewed().then(function(response){
+			$rootScope.notifications=response.data
+			$rootScope.notificationCount=$rootScope.notifications.length
+		},function(response){
+			if(response.status==401)
+				$location.path('/login')
+		})
+	}
+	
 	$scope.sendFriendRequest=function(toId){
 		//call a function in service
 		FriendService.sendFriendRequest(toId).then(function(response){
@@ -22,7 +33,7 @@ app.controller('FriendCtrl',function($scope,$location,FriendService)
 		})
 		}
 	
-	    function getAllPendingRequests(){
+	    function getAllPendingRequests2(){
 		FriendService.getAllPendingRequests().then(
 		function(response){
 		$scope.pendingRequests=response.data
@@ -31,11 +42,22 @@ app.controller('FriendCtrl',function($scope,$location,FriendService)
 		$location.path('/login')
 		})
 		}
-
+	    
+	    function getAllPendingRequests1(){
+	    	FriendService.getAllPendingRequests().then(function(response){
+				$rootScope.pendingRequests=response.data
+				$rootScope.pendingRequestsCount=$rootScope.pendingRequests.length
+			},function(response){
+				if(response.status==401)
+					$location.path('/login')
+			})
+		}
+	    
 		$scope.acceptFriendRequest=function(request){
 		FriendService.acceptFriendRequest(request).then(function(response)
 		{
-		getAllPendingRequests()
+		getAllPendingRequests1()
+		getAllPendingRequests2()
 		},function(response)
 		{
 		if(response.status == 401)
@@ -46,14 +68,28 @@ app.controller('FriendCtrl',function($scope,$location,FriendService)
 		$scope.deleteFriendRequest=function(request){
 		FriendService.deleteFriendRequest(request).then(function(response)
 		{
-		getAllPendingRequests()
+		getAllPendingRequests1()
+		getAllPendingRequests2()
 		},function(response)
 		{
 		if(response.status == 401)
 		$location.path('/login')
 		})
 		}
-		getAllPendingRequests()
+		 function getAllFriends(){
+		    	FriendService.getAllFriends().then(
+		    			function(response){
+		    				//response.data is Array of User object
+		    				$scope.friends=response.data
+		    			},function(response){
+		    				if(response.status==401)
+		    					$location.path('/login')
+		    			})
+		    }
+		getAllNotificationsNotViewed()
+		getAllPendingRequests1()
+		getAllPendingRequests2()
         getAllSuggestedUsers()
+        getAllFriends()
 	
 })

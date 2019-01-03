@@ -22,16 +22,18 @@ app.config(function($routeProvider){
 	.when('/updateblogpost/:blogPostId',{controller:'BlogInDetailCtrl',templateUrl:'views/updateblogform.html'})
 	.when('/updateblogcomment/:blogCommentId',{controller:'BlogInDetailCtrl',templateUrl:'views/updatecommentsform.html'})
 	.when('/getblogapproved/:blogId',{controller:'BlogInDetailCtrl',templateUrl:'views/blogdetails.html'})
-	.when('/home',{controller:'NotificationCtrl',templateUrl:'views/home.html'})
+	.when('/listoffriends',{controller:'FriendCtrl',templateUrl:'views/friendslist.html'})
 	.when('/getnotification/:notificationId',{controller:'NotificationCtrl',templateUrl:'views/notificationdetails.html'})
 	.when('/uploadprofilepic',{templateUrl:'views/profilepictureform.html'})
 	.when('/suggestedusers',{controller:'FriendCtrl',templateUrl:'views/suggestedusers.html'})
 	.when('/pendingrequests',{controller:'FriendCtrl',templateUrl:'views//pendingrequests.html'})
+	.when('/home',{controller:'FriendCtrl',templateUrl:'views/home.html'})
+	
 	.otherwise({controller:'UserCtrl',templateUrl:'views/home.html'})
 })
 //ngRoute -> $routeProvider and ng-view
 //ngCookies -> $cookieStore
-
+//.when('/home',{controller:'NotificationCtrl',templateUrl:'views/home.html'})
 app.run(function($rootScope,$cookieStore,UserService,$location){
 	if($rootScope.user==undefined)
 		$rootScope.user=$cookieStore.get('user')

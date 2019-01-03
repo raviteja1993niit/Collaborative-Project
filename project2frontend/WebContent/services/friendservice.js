@@ -22,5 +22,9 @@ app.factory('FriendService',function($http){
 			alert("Friend Request Deleted")
 		return $http.put(BASE_URL+"/deletefriendrequest",request)
 		}
+		
+	    friendService.getAllFriends=function(){
+	    	return $http.get(BASE_URL + "/listoffriends")
+	    }
 	return friendService;
 })

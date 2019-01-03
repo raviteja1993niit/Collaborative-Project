@@ -27,6 +27,7 @@ app.controller('UserCtrl',function($scope,$rootScope,UserService,NotificationSer
 		//call a function in service
 		UserService.updateUser(user).then(function(response){
 			alert('USER DETAILS UPDATED  successfully... Please login')
+			$rootScope.user=response.data
 			$location.path('/home')
 		},function(response){
 			//response.data -> ErrorClazz object
