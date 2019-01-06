@@ -28,7 +28,7 @@ app.config(function($routeProvider){
 	.when('/suggestedusers',{controller:'FriendCtrl',templateUrl:'views/suggestedusers.html'})
 	.when('/pendingrequests',{controller:'FriendCtrl',templateUrl:'views//pendingrequests.html'})
 	.when('/home',{controller:'FriendCtrl',templateUrl:'views/home.html'})
-	
+	.when('/chat',{controller:'ChatCtrl',templateUrl:'views/chat.html'})
 	.otherwise({controller:'UserCtrl',templateUrl:'views/home.html'})
 })
 //ngRoute -> $routeProvider and ng-view

@@ -11,6 +11,7 @@ C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\nii
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\configuration\WebAppConfig.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\ProfilePicture.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\BlogPostLikesDaoImpl.java
+C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\Chat.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\Job.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\FriendDaoImpl.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\NotificationDaoImpl.java
@@ -23,6 +24,7 @@ C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\nii
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\daoimpl\BlogPostDaoImpl.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\Friend.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\BlogPostDao.java
+C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\configuration\WebSocketConfiguration.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\ProfilePictureDao.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\dao\UserDao.java
 C:\Users\MAHADEV\git\Collaborative-Project\project2backend\src\main\java\com\niit\models\Notification.java
